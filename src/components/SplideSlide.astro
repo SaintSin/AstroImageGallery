@@ -24,8 +24,9 @@ const images = gallery ? gallery.data.images : [];
             <Image
               src={i.src}
               alt={i.alt}
-              widths={[400, 800, 1200, 1600]}
+              widths={[800, 1200, 1600]}
               loading={"eager"}
+              class="splide__slide__image"
             />
           </li>
         ))
@@ -47,3 +48,8 @@ const images = gallery ? gallery.data.images : [];
     pagination: false,
   }).mount();
 </script>
+
+<style>
+  .splide__list {
+  }
+</style>

@@ -3,21 +3,20 @@ import Layout from "../layouts/Layout.astro";
 import Gallery from "@components/Gallery.astro";
 import Swiper from "@components/Swiper.astro";
 import Splide from "@components/SplideSlide.astro";
-
 ---
 
 <Layout title="Welcome to Astro.">
   <section>
     <h1>Slider 1</h1>
-    <Swiper galleryid="3" />
+    <!-- <Swiper galleryid="3" /> -->
 
     <Splide galleryid="3" />
-
   </section>
 </Layout>
 <style>
   section {
-    max-width: 70%;
+    width: 85%;
+    max-width: 1600px;
     margin-inline: auto;
   }
 </style>
