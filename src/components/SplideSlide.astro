@@ -1,0 +1,48 @@
+---
+// Vanilla Gallery
+import { type CollectionEntry, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  galleryid: string;
+  gallery?: CollectionEntry<"galleries">; // gallery is now optional
+}
+
+const { galleryid } = Astro.props;
+
+const gallery = await getEntry("galleries", galleryid);
+const images = gallery ? gallery.data.images : [];
+---
+
+<section class="splide" aria-labelledby="carousel-heading">
+<h2>Splide Slider</h2>  <div class="splide__track">
+    <ul class="splide__list">
+      {
+        images.map((i) => (
+          <li class="splide__slide">
+            <Image
+              src={i.src}
+              alt={i.alt}
+              widths={[400, 800, 1200, 1600]}
+              loading={"eager"}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+  new Splide(".splide", {
+    type: "fade",
+    autoplay: "true",
+    perPage: 1,
+    speed: 1500,
+    rewind: true,
+    arrows: false,
+    pagination: false,
+  }).mount();
+</script>

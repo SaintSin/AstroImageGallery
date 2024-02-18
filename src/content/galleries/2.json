@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "src": "@images/2/cat_05.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/2/cat_06.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/2/cat_07.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/2/cat_08.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    }
+  ]
+}

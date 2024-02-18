@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "src": "@images/3/Beach_2.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/3/Beach_3.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/3/Beach_4.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/3/Beach_5.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    }
+  ]
+}
