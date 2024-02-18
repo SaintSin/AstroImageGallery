@@ -23,6 +23,37 @@
       "alt": "Some text",
       "title": "a title",
       "description": "xxx"
+    },
+    {
+      "src": "@images/2/cat_09.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/2/cat_10.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+
+    {
+      "src": "@images/2/cat_11.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/2/cat_12.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/2/cat_13.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
     }
   ]
 }

@@ -1,0 +1,227 @@
+---
+// Vanilla Gallery
+import { type CollectionEntry, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  galleryid: string;
+  gallery?: CollectionEntry<"galleries">; // gallery is now optional
+}
+
+const { galleryid } = Astro.props;
+
+const gallery = await getEntry("galleries", galleryid);
+const images = gallery ? gallery.data.images : [];
+---
+
+<section class="">
+  <p>Thumbnails</p>
+  <div>
+    <ul id="thumbnails" class="thumbnails">
+      {
+        images.map((i) => (
+          <li class="thumbnail">
+            <button data-open-modal>
+              <Image
+                src={i.src}
+                alt={JSON.stringify(i.alt)}
+                widths={[200, 400, 600]}
+                quality={40}
+                loading={"eager"}
+              />
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Modal Dialogue With Larger Images-->
+<dialog data-modal>
+  <!-- Splide main carousel -->
+  <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {
+          images.map((photo, index) => (
+            <li class="splide__slide">
+              <Image
+                src={photo.src}
+                alt={JSON.stringify(photo.alt)}
+                widths={[400, 800, 1200, 1600, 2000]}
+                quality={40}
+                loading={"eager"}
+              />
+              <div class="container__text">
+                <p class="txt-center">
+                  <b>
+                    {index + 1} - {photo.title}
+                  </b>
+                  <br />
+                  <em>{photo.description}</em>
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <button data-close-modal>Close</button>
+</dialog>
+
+<style>
+  :root {
+    --gap: 1rem;
+    --thumbw: 200px;
+    --thumbwmin: 140px;
+  }
+  .splide {
+    margin: 0 auto;
+  }
+
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: var(--gap);
+  }
+  .thumbnail {
+    list-style: none;
+    max-width: var(--thumbw);
+    min-width: var(--thumbwmin);
+    button {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: none;
+      &:hover {
+        cursor: pointer;
+      }
+      img {
+        border: 1px solid hsla(0, 0%, 0%, 0.688);
+      }
+    }
+  }
+
+  /* Dialog modal*/
+  dialog {
+    width: 100vw;
+    height: 100vh;
+    border: 0px;
+    button {
+      display: block;
+      background: rgba(19, 184, 184, 0.59);
+      border: none;
+      color: white;
+    }
+  }
+  dialog::backdrop {
+    background: hsla(46, 27%, 88%, 0.821);
+  }
+
+  /* Lighbox Contents */
+  .splide__slide img {
+    max-height: 80vh;
+    width: auto;
+    max-width: 70vw;
+  }
+</style>
+
+<!-- Modal Control -->
+<script>
+  // Define types for elements and events
+  interface ModalElement extends HTMLElement {
+    showModal: () => void;
+    close: () => void;
+  }
+
+  // Query selectors
+  const openButtons =
+    document.querySelectorAll<HTMLElement>("[data-open-modal]");
+  const closeButton = document.querySelector<HTMLElement>("[data-close-modal]");
+  const modal = document.querySelector<ModalElement>("[data-modal]");
+
+  // Add event listeners
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (modal) {
+        modal.showModal();
+      }
+    });
+  });
+
+  if (closeButton && modal) {
+    closeButton.addEventListener("click", () => {
+      modal.close();
+    });
+  }
+</script>
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+
+  // Define types for elements and Splide options
+  interface ThumbnailElement extends Element {
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions,
+    ): void;
+  }
+
+  interface SplideOptions {
+    type: string;
+    rewind: boolean;
+    speed: number;
+  }
+
+  // Initialize Splide
+  const slideSpeed: number = 401;
+  const splideOptions: SplideOptions = {
+    type: "fade",
+    rewind: true,
+    speed: slideSpeed,
+  };
+  const splide = new Splide("#image-carousel", splideOptions);
+
+  // Collect LI elements
+  const thumbnails = document.getElementsByClassName("thumbnail");
+
+  // Initialize each thumbnail
+  for (let i = 0; i < thumbnails.length; i++) {
+    const thumbnail = thumbnails[i] as ThumbnailElement;
+    initThumbnail(thumbnail, i);
+  }
+
+  // Declare current
+  let current: ThumbnailElement | null = null;
+
+  // Function to initialize each thumbnail
+  function initThumbnail(thumbnail: ThumbnailElement, index: number) {
+    thumbnail.addEventListener("click", () => {
+      if (splide) {
+        splide.go(index);
+      }
+    });
+  }
+
+  // Event listener for Splide events
+  splide.on("mounted move", () => {
+    const thumbnail = thumbnails[splide.index] as ThumbnailElement;
+
+    if (thumbnail) {
+      if (current) {
+        current.classList.remove("is-active");
+      }
+
+      thumbnail.classList.add("is-active");
+      current = thumbnail;
+    }
+  });
+
+  // Mount Splide
+  splide.mount();
+</script>

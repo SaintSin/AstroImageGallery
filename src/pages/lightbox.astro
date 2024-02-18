@@ -1,14 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Gallery from "@components/Gallery.astro";
-import Swiper from "@components/Swiper.astro";
+import LightboxA from "@components/Lightbox.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <section>
-    <h1>Slider 1</h1>
-    Autoplay is not working
-    <Swiper galleryid="3" />
+    <h1>Lightbox</h1>
+    <LightboxA galleryid="2" />
   </section>
 </Layout>
 <style>

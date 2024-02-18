@@ -1,11 +1,10 @@
 ---
-// Vanilla Gallery
 import { type CollectionEntry, getEntry } from "astro:content";
 import { Image } from "astro:assets";
 
 interface Props {
   galleryid: string;
-  gallery?: CollectionEntry<"galleries">; // gallery is now optional
+  gallery?: CollectionEntry<"galleries">;
 }
 
 const { galleryid } = Astro.props;
