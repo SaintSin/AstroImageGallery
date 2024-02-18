@@ -15,7 +15,7 @@ const images = gallery ? gallery.data.images : [];
 ---
 
 <section class="splide" aria-labelledby="carousel-heading">
-  <h2>Splide Slider</h2>
+  <h2>Splide Slider With Sizes</h2>
   <div class="splide__track">
     <ul class="splide__list">
       {
@@ -24,7 +24,8 @@ const images = gallery ? gallery.data.images : [];
             <Image
               src={i.src}
               alt={i.alt}
-              widths={[800, 1200, 1600]}
+              widths={[240, 540, 720, 1600]}
+              sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 1600px`}
               loading={"eager"}
               class="splide__slide__image"
             />
