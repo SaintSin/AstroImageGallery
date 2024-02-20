@@ -24,7 +24,15 @@ import "../styles/reset.css";
 <style is:global>
   /* the props */
   @import "open-props/open-props.min.css";
+  :root {
+    --dark: 16.86% 0 268;
+    --light: 99% 0 111;
+  }
 
+  body {
+    background: oklch(var(--dark));
+    color: oklch(var(--light));
+  }
   img {
     height: auto;
     width: 100%;

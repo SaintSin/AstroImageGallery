@@ -1,11 +1,13 @@
 ---
-// Vanilla Gallery
+// Code for modal interaction inspiration:
+// https://codepen.io/web_walking_nak/pen/abjbNOL
+
 import { type CollectionEntry, getEntry } from "astro:content";
 import { Image } from "astro:assets";
 
 interface Props {
   galleryid: string;
-  gallery?: CollectionEntry<"galleries">; // gallery is now optional
+  gallery?: CollectionEntry<"galleries">;
 }
 
 const { galleryid } = Astro.props;
@@ -126,7 +128,7 @@ const images = gallery ? gallery.data.images : [];
   .splide__slide img {
     max-height: 80vh;
     width: auto;
-    max-width: 70vw;
+    max-width: 90vw;
   }
 </style>
 
@@ -179,7 +181,7 @@ const images = gallery ? gallery.data.images : [];
   }
 
   // Initialize Splide
-  const slideSpeed: number = 401;
+  const slideSpeed: number = 400;
   const splideOptions: SplideOptions = {
     type: "fade",
     rewind: true,

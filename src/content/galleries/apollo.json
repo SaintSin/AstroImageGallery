@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "src": "@images/apollo/as11-40-5948_9352715612_cd92d47d05_o.jpg",
+      "alt": "An astronaut on the moon",
+      "title": "Ed Aldrin Moon Walk",
+      "description": "Astronaut Edwin E. Aldrin Jr., lunar module pilot, is photographed during the Apollo 11 extravehicular activity (EVA) on the moon. He has just deployed the Early Apollo Scientific Experiments Package (EASEP). This is a good view of the deployed equipment. In the foreground is the Passive Seismic Experiment Package (PSEP); beyond it is the Laser Ranging Retro-Reflector (LR-3); in the center background is the United States flag; in the left background is the black and white lunar surface television camera; in the far right background is the Lunar Module (LM)"
+    },
+    {
+      "src": "@images/apollo/as11_40_5903_9352717772_a58acf4e82_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/apollo/as11_44_6609_9349937349_b208d1fedf_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/apollo/s69-39557_9349929247_c25242af04_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/apollo/as09-19-2983_9349133491_18d0991738_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    }
+  ]
+}

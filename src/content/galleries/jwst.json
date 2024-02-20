@@ -1,0 +1,39 @@
+{
+  "images": [
+    {
+      "src": "@images/jwst/52259221868_3d2963c1fe_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/jwst/52692932279_6606876271_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
+    {
+      "src": "@images/jwst/52638633506_cfc0083021_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/jwst/52211586681_1e95f5ec38_o.jpg",
+      "alt": "Stefans Quintent",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/jwst/53361000972_340f599081_o.jpg",
+      "alt": "Stefans Quintent",
+      "title": "a title",
+      "description": "xxx"
+    },  {
+      "src": "@images/jwst/Herbig_Haro_HH_797_53361000972_340f599081_o.jpg",
+      "alt": "Herbig Haro",
+      "title": "a title",
+      "description": "xxx"
+    }
+  ]
+}
