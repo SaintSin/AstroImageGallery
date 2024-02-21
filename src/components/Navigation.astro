@@ -1,0 +1,28 @@
+---
+const links = [
+  { linkText: "Home", link: "/" },
+  { linkText: "Lightbox", link: "/lightbox/" },
+  { linkText: "Slider", link: "/slider/" },
+];
+---
+
+<nav>
+  <ul role="list">
+    {
+      links.map((link) => (
+        <li>
+          <a href={link.link}>{link.linkText}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+<style>
+  li {
+    display: inline-block;
+    a {
+      padding-inline: 1rem;
+      text-decoration: none;
+    }
+  }
+</style>

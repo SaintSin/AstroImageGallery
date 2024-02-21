@@ -17,7 +17,7 @@ const images = gallery ? gallery.data.images : [];
 ---
 
 <section class="">
-  <p>Thumbnails</p>
+  
   <div>
     <ul id="thumbnails" class="thumbnails">
       {
@@ -28,6 +28,7 @@ const images = gallery ? gallery.data.images : [];
                 src={i.src}
                 alt={JSON.stringify(i.alt)}
                 widths={[200, 400, 600]}
+                sizes={`(max-width: 260px) 200px, (max-width: 520px) 400px,  600px`}
                 quality={40}
                 loading={"eager"}
               />
@@ -42,7 +43,7 @@ const images = gallery ? gallery.data.images : [];
 <!-- Modal Dialogue With Larger Images-->
 <dialog data-modal>
   <!-- Splide main carousel -->
-  <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+  <section id="image-carousel" class="splide" >
     <div class="splide__track">
       <ul class="splide__list">
         {
@@ -52,17 +53,15 @@ const images = gallery ? gallery.data.images : [];
                 src={photo.src}
                 alt={JSON.stringify(photo.alt)}
                 widths={[400, 800, 1200, 1600, 2000]}
-                quality={40}
+                sizes={`(max-width: 500px) 400px, (max-width: 900px) 800px,  2000px`}
+  quality={40}
                 loading={"eager"}
               />
               <div class="container__text">
-                <p class="txt-center">
-                  <b>
-                    {index + 1} - {photo.title}
-                  </b>
-                  <br />
-                  <em>{photo.description}</em>
+                <p class="slide__title">
+                  {index + 1}. <b>{photo.title}</b>
                 </p>
+                <p class="slide__description">{photo.description}</p>
               </div>
             </li>
           ))
@@ -75,7 +74,6 @@ const images = gallery ? gallery.data.images : [];
 
 <style>
   :root {
-    --gap: 1rem;
     --thumbw: 200px;
     --thumbwmin: 140px;
   }
@@ -83,9 +81,14 @@ const images = gallery ? gallery.data.images : [];
     margin: 0 auto;
   }
 
+dialog >  * {
+    outline: 1px solid red;
+  }
+
   .thumbnails {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 
     gap: var(--gap);
@@ -108,7 +111,6 @@ const images = gallery ? gallery.data.images : [];
     }
   }
 
-  /* Dialog modal*/
   dialog {
     width: 100vw;
     height: 100vh;
@@ -121,7 +123,8 @@ const images = gallery ? gallery.data.images : [];
     }
   }
   dialog::backdrop {
-    background: hsla(46, 27%, 88%, 0.821);
+    background: oklch(var(--dark));
+    background: red;
   }
 
   /* Lighbox Contents */
@@ -130,6 +133,8 @@ const images = gallery ? gallery.data.images : [];
     width: auto;
     max-width: 90vw;
   }
+  .slide__title, .slide__description{text-align: center;} 
+
 </style>
 
 <!-- Modal Control -->
@@ -161,6 +166,7 @@ const images = gallery ? gallery.data.images : [];
     });
   }
 </script>
+
 <script>
   import Splide from "@splidejs/splide";
   import "@splidejs/splide/css";

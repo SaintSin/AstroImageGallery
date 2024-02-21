@@ -4,60 +4,54 @@ import Gallery from "@components/Gallery.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <section>
+  <main>
     <h1>Section 1</h1>
-    <Gallery galleryid="1" />
-    <Gallery galleryid="2" />
-    <Gallery galleryid="jwst" />
+    <section class="grid">
+      <Gallery galleryid="2" />
+    </section>
+    <section>
+      <p>
+        https://www.flickr.com/photos/nasawebbtelescope/53186159982/in/album-72177720305127361/
+        - Super Sonic
+      </p>
+      <p>
+        https://www.flickr.com/photos/nasawebbtelescope/53361000972/in/album-72177720305127361/
+        - HH
+      </p>
+      <p>
+        https://www.flickr.com/photos/nasawebbtelescope/52692932279/in/album-72177720305127361/
+        Dust
+      </p>
+      <p>
+        https://www.flickr.com/photos/nasawebbtelescope/52638633506/in/album-72177720305127361/
+        Ice
+      </p>
 
-    <p>
-      https://www.flickr.com/photos/nasawebbtelescope/53186159982/in/album-72177720305127361/
-      - Super Sonic
-    </p>
-    <p>
-      https://www.flickr.com/photos/nasawebbtelescope/53361000972/in/album-72177720305127361/
-      - HH
-    </p>
-    <p>
-      https://www.flickr.com/photos/nasawebbtelescope/52692932279/in/album-72177720305127361/
-      Dust
-    </p>
-    <p>
-      https://www.flickr.com/photos/nasawebbtelescope/52638633506/in/album-72177720305127361/
-      Ice
-    </p>
+      <hr />
+      <h3>Appollo 11</h3>
+      <p>
+        https://www.flickr.com/photos/nasa2explore/9352725998/in/album-72157634767563484/
+        - s69-39957
+      </p>
+      <p>
+        https://www.flickr.com/photos/nasa2explore/9349947623/in/album-72157634767563484/
+        - Men
+      </p>
 
-    <hr />
-    <h3>Appollo 11</h3>
-    <p>
-      https://www.flickr.com/photos/nasa2explore/9352725998/in/album-72157634767563484/
-      - s69-39957
-    </p>
-    <p>
-      https://www.flickr.com/photos/nasa2explore/9349947623/in/album-72157634767563484/
-      - Men
-    </p>
-
-    <p>
-      Galactic high five! In the James Webb Space Telescope’s image of Stephan’s
-      Quintet, we see 5 galaxies, 4 of which interact. (The left galaxy is
-      actually in the foreground!) These colliding galaxies are pulling and
-      stretching each other in a gravitational dance. Webb will revolutionize
-      our knowledge of star formation and gas interactions within:
-      nasa.gov/webbfirstimages/
-    </p>
-    <p>
-      https://www.flickr.com/photos/nasawebbtelescope/52259221868/in/album-72177720300469752/
-      Carina
-    </p><p>
-      https://www.flickr.com/photos/nasawebbtelescope/53320910661/in/album-72177720305127361/
-    </p>
-  </section>
+      <p>
+        Galactic high five! In the James Webb Space Telescope’s image of
+        Stephan’s Quintet, we see 5 galaxies, 4 of which interact. (The left
+        galaxy is actually in the foreground!) These colliding galaxies are
+        pulling and stretching each other in a gravitational dance. Webb will
+        revolutionize our knowledge of star formation and gas interactions
+        within: nasa.gov/webbfirstimages/
+      </p>
+      <p>
+        https://www.flickr.com/photos/nasawebbtelescope/52259221868/in/album-72177720300469752/
+        Carina
+      </p><p>
+        https://www.flickr.com/photos/nasawebbtelescope/53320910661/in/album-72177720305127361/
+      </p>
+    </section>
+  </main>
 </Layout>
-<style>
-  section {
-    width: 70%;
-    max-width: 1600px;
-    margin-inline: auto;
-  }
-</style>

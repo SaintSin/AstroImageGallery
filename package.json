@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.5",
     "@splidejs/splide": "^4.1.4",
-    "astro": "^4.4.0",
+    "astro": "^4.4.1",
     "open-props": "^1.6.18",
     "sharp": "^0.33.2",
     "swiper": "^11.0.6",

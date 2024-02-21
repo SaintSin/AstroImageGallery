@@ -10,16 +10,22 @@
       "src": "@images/apollo/as11_40_5903_9352717772_a58acf4e82_o.jpg",
       "alt": "Some text",
       "title": "a title",
-      "description": "an optional description"
+      "description": "AS11-40-5903 (20 July 1969) --- Astronaut Edwin E. Aldrin Jr., lunar module pilot, walks on the surface of the moon near the leg of the Lunar Module (LM) during the Apollo 11 extravehicular activity (EVA)."
     },
     {
       "src": "@images/apollo/as11_44_6609_9349937349_b208d1fedf_o.jpg",
       "alt": "Some text",
       "title": "a title",
-      "description": "xxx"
+      "description": "AS11-44-6609 (16-24 July 1969) --- An oblique of the Crater Daedalus on the lunar farside as seen from the Apollo 11 spacecraft in lunar orbit. The view looks southwest."
     },
     {
-      "src": "@images/apollo/s69-39557_9349929247_c25242af04_o.jpg",
+      "src": "@images/apollo/as09-19-2983_9349133491_18d0991738_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "AS09-19-2983 (6 March 1969) --- Astronaut Russell L. Schweickart, lunar module pilot, operates a 70mm Hasselblad camera during his extravehicular activity (EVA) on the fourth day of the Apollo 9 Earth-orbital mission. "
+    },
+    {
+      "src": "@images/apollo/as11-44-6551_9349934619_07c473c0f1_o.jpg",
       "alt": "Some text",
       "title": "a title",
       "description": "xxx"
@@ -29,6 +35,54 @@
       "alt": "Some text",
       "title": "a title",
       "description": "xxx"
+    },
+    {
+      "src": "@images/apollo/as09-19-2983_9349133491_18d0991738_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
+      "src": "@images/apollo/s68-54859_9351910884_2ea8708741_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "S68-54859 (November 1968) --- The prime crew of the Apollo 9 (Spacecraft 104/Lunar Module 3/Saturn 504) space mission participates in water egress training in a tank in Building 260 at the Manned Spacecraft Center."
+    },
+    {
+      "src": "@images/apollo/s69-39557_9349929247_c25242af04_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "S69-39557 (20 July 1969) --- Astronauts Neil A. Armstrong (on left), commander; and Edwin E. Aldrin Jr., lunar module pilot, are seen standing by the Lunar Module ladder in this black and white reproduction taken from a telecast by the Apollo 11 lunar surface television camera during the Apollo 11 extravehicular activity. "
+    },
+    {
+      "src": "@images/apollo/s69-39601_9349947623_2c99f4f004_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "S69-39601 (20 July 1969) --- Spacecraft communicators are pictured as they keep in contact with the Apollo 11 astronauts during their lunar landing mission on July 20, 1969."
+    },
+    {
+      "src": "@images/apollo/s69-39957_9352725998_64232fcc8a_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "S69-39957 (16 July 1969) --- A 70mm Airborne Lightweight Optical Tracking System (ALOTS) took this picture. ALOTS tracking camera mounted on an Air Force EC-135 aircraft flying at about 40,000 feet altitude photographed this event in the early moments of the Apollo 11 launch. "
+    },
+    {
+      "src": "@images/apollo/s69-40025_9352707586_105b2503dc_o.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "S69-40025 (24 July 1969) --- Overall view of the Mission Operations Control Room (MOCR) in the Mission Control Center (MCC), Building 30, Manned Spacecraft Center (MSC), showing the flight controllers celebrating the successful conclusion of the Apollo 11 lunar landing mission."
+    },
+    {
+      "src": "@images/apollo/s69-40147-9352707408_27e2428d1f_o.jpg",
+      "alt": "Astronauts in quarantine capsule",
+      "title": "Quarantine To Prevent Covid 69 Outbreak",
+      "description": "S69-40147 (27 July 1969) --- The Apollo 11 crewmen, still under a 21-day quarantine, are greeted by their wives. They arrived at Ellington Air Force Base very early Sunday after a flight aboard a U.S. Air Force C-141 transport from Hawaii."
+    },
+    {
+      "src": "@images/apollo/s70-17434-9349923419_977de67625_o.jpg",
+      "alt": "Ticker tape parade in New York",
+      "title": "Ticker Tape Parade",
+      "description": "S70-17434 (13 Aug. 1969) --- New York City welcomes Apollo 11 crewmen in a showering of ticker tape down Broadway and Park Avenue in a parade termed as the largest in the city's history."
     }
   ]
 }
