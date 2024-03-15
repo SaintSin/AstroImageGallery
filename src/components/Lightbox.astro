@@ -17,7 +17,6 @@ const images = gallery ? gallery.data.images : [];
 ---
 
 <section class="">
-  
   <div>
     <ul id="thumbnails" class="thumbnails">
       {
@@ -43,7 +42,7 @@ const images = gallery ? gallery.data.images : [];
 <!-- Modal Dialogue With Larger Images-->
 <dialog data-modal>
   <!-- Splide main carousel -->
-  <section id="image-carousel" class="splide" >
+  <section id="image-carousel" class="splide">
     <div class="splide__track">
       <ul class="splide__list">
         {
@@ -53,8 +52,8 @@ const images = gallery ? gallery.data.images : [];
                 src={photo.src}
                 alt={JSON.stringify(photo.alt)}
                 widths={[400, 800, 1200, 1600, 2000]}
-                sizes={`(max-width: 500px) 400px, (max-width: 900px) 800px,  2000px`}
-  quality={40}
+                sizes={`(max-width: 500px) 400px, (max-width: 900px) 800px, (max-width: 1300px) 1200px,   2000px`}
+                quality={40}
                 loading={"eager"}
               />
               <div class="container__text">
@@ -81,7 +80,7 @@ const images = gallery ? gallery.data.images : [];
     margin: 0 auto;
   }
 
-dialog >  * {
+  dialog > * {
     outline: 1px solid red;
   }
 
@@ -129,12 +128,14 @@ dialog >  * {
 
   /* Lighbox Contents */
   .splide__slide img {
-    max-height: 80vh;
+    max-height: 70vh;
     width: auto;
     max-width: 90vw;
   }
-  .slide__title, .slide__description{text-align: center;} 
-
+  .slide__title,
+  .slide__description {
+    text-align: center;
+  }
 </style>
 
 <!-- Modal Control -->
@@ -176,7 +177,7 @@ dialog >  * {
     addEventListener(
       type: string,
       listener: EventListenerOrEventListenerObject,
-      options?: boolean | AddEventListenerOptions,
+      options?: boolean | AddEventListenerOptions
     ): void;
   }
 

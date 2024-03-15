@@ -11,13 +11,13 @@
     "prettier": "prettier --write . --plugin=prettier-plugin-astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.5",
+    "@astrojs/check": "^0.5.9",
     "@splidejs/splide": "^4.1.4",
-    "astro": "^4.4.1",
-    "open-props": "^1.6.18",
+    "astro": "^4.5.4",
+    "open-props": "^1.6.21",
     "sharp": "^0.33.2",
-    "swiper": "^11.0.6",
-    "typescript": "^5.3.3"
+    "swiper": "^11.0.7",
+    "typescript": "^5.4.2"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
