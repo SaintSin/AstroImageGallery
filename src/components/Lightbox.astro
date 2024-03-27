@@ -48,14 +48,16 @@ const images = gallery ? gallery.data.images : [];
         {
           images.map((photo, index) => (
             <li class="splide__slide">
-              <Image
-                src={photo.src}
-                alt={JSON.stringify(photo.alt)}
-                widths={[400, 800, 1200, 1600, 2000]}
-                sizes={`(max-width: 500px) 400px, (max-width: 900px) 800px, (max-width: 1300px) 1200px,   2000px`}
-                quality={40}
-                loading={"eager"}
-              />
+              <div class="slide__image">
+                <Image
+                  src={photo.src}
+                  alt={JSON.stringify(photo.alt)}
+                  widths={[400, 800, 1200, 1600, 2000]}
+                  sizes={`(max-width: 500px) 400px, (max-width: 900px) 800px, (max-width: 1300px) 1200px, 2000px`}
+                  quality={40}
+                  loading={"eager"}
+                />
+              </div>
               <div class="slide__text">
                 <p class="slide__title">
                   {index + 1}. <b>{photo.title}</b>
@@ -115,6 +117,8 @@ const images = gallery ? gallery.data.images : [];
     // height: 100vh;
     max-height: 100vh;
     border: 0px;
+    background: oklch(var(--dark));
+
     button {
       display: block;
       background: rgba(19, 184, 184, 0.59);
@@ -131,27 +135,33 @@ const images = gallery ? gallery.data.images : [];
     display: grid;
     // Navigation l & r buttons, image then navigation bullets
     grid-template-rows: 1fr auto 25px;
-    max-height: 100vh;
+    --_max-height: 90vh;
   }
   .splide__slide {
+    // background-color: red;
     display: grid;
     grid-template-columns: 55px 1fr 55px;
-    grid-column: 1fr 0.25fr;
+    grid-template-rows: var(--_max-height) auto;
     grid-template-areas:
-      "lhs mainimage rhs"
+      "lhs image rhs"
       "lhs text rhs";
+  }
+  .slide__image {
+    grid-area: image;
+    display: grid;
+    // background-color: blue;
 
     img {
-      grid-area: mainimage;
-      max-height: 90vh;
+      max-height: var(--_max-height);
       width: auto;
-    }
-    .slide__text {
-      grid-area: text;
       margin: auto;
-      text-align: center;
-      padding-top: var(--size-fluid-1);
     }
+  }
+  .slide__text {
+    grid-area: text;
+    margin: auto;
+    text-align: center;
+    color: oklch(var(--light));
   }
   .btn-close {
     width: 7ch;
