@@ -4,15 +4,22 @@ import LightboxA from "@components/Lightbox.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <section>
+  <section class="surface">
     <h1>Lightbox</h1>
     <LightboxA galleryid="2" />
   </section>
 </Layout>
 <style>
-  section {
+  .surface {
     width: 90%;
-    max-width: 1600px;
+    max-width: 1800px;
     margin-inline: auto;
+  }
+  @media screen and (max-width: 600px) {
+    .surface {
+      width: 98%;
+      margin-inline: auto;
+      background-color: rgba(255, 0, 0, 0.205);
+    }
   }
 </style>

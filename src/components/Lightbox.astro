@@ -18,7 +18,7 @@ const images = gallery ? gallery.data.images : [];
 
 <section class="">
   <div>
-    <ul id="thumbnails" class="thumbnails">
+    <ul class="thumbnails">
       {
         images.map((i) => (
           <li class="thumbnail">
@@ -26,8 +26,8 @@ const images = gallery ? gallery.data.images : [];
               <Image
                 src={i.src}
                 alt={JSON.stringify(i.alt)}
-                widths={[200, 400, 600]}
-                sizes={`(max-width: 260px) 200px, (max-width: 520px) 400px,  600px`}
+                widths={[180, 400, 600]}
+                sizes={`(max-width: 260px)180px, (max-width: 520px) 400px,  600px`}
                 quality={40}
                 loading={"eager"}
               />
@@ -79,6 +79,12 @@ const images = gallery ? gallery.data.images : [];
     --thumbw: var(--size-fluid-8);
     --thumbwmin: var(--size-fluid-7);
   }
+  @media screen and (max-width: 600px) {
+    :root {
+      --thumbw: var(--size-fluid-7);
+      --thumbwmin: var(--size-fluid-5);
+    }
+  }
   .splide {
     margin: auto;
   }
@@ -88,6 +94,7 @@ const images = gallery ? gallery.data.images : [];
   }
 
   .thumbnails {
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
