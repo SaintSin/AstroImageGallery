@@ -13,6 +13,12 @@
       "description": "an optional description"
     },
     {
+      "src": "@images/1/cat_3.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "xxx"
+    },
+    {
       "src": "@images/2/cat_07.jpg",
       "alt": "Some text",
       "title": "a title",
@@ -36,7 +42,12 @@
       "title": "a title",
       "description": "xxx"
     },
-
+    {
+      "src": "@images/1/cat_2.jpg",
+      "alt": "Some text",
+      "title": "a title",
+      "description": "an optional description"
+    },
     {
       "src": "@images/2/cat_11.jpg",
       "alt": "Some text",
