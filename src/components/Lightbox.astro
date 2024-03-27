@@ -71,10 +71,10 @@ const images = gallery ? gallery.data.images : [];
   <button data-close-modal>Close</button>
 </dialog>
 
-<style>
+<style lang="scss">
   :root {
-    --thumbw: 200px;
-    --thumbwmin: 140px;
+    --thumbw: var(--size-fluid-8);
+    --thumbwmin: var(--size-fluid-7);
   }
   .splide {
     margin: 0 auto;
@@ -89,7 +89,6 @@ const images = gallery ? gallery.data.images : [];
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
     gap: var(--gap);
   }
   .thumbnail {

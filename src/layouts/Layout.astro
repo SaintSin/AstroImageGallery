@@ -25,7 +25,6 @@ import "../styles/reset.css";
 </html>
 <style is:global>
   /* the props */
-  @import "open-props/open-props.min.css";
   :root {
     --dark: 16.86% 0 268;
     --light: 99% 0 111;
@@ -36,6 +35,7 @@ import "../styles/reset.css";
   body {
     background: oklch(var(--dark));
     color: oklch(var(--light));
+    font-family: var(--font-sans);
   }
   p {
     max-width: var(--maxchars);

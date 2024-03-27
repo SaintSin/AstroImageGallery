@@ -7,7 +7,9 @@ import Gallery from "@components/Gallery.astro";
   <main>
     <h1>Section 1</h1>
     <section class="grid">
-      <Gallery galleryid="2" />
+      <div class="gallery-wrapper">
+        <Gallery galleryid="2" />
+      </div>
     </section>
     <section>
       <p>
@@ -55,3 +57,11 @@ import Gallery from "@components/Gallery.astro";
     </section>
   </main>
 </Layout>
+<style>
+  .gallery-wrapper {
+    grid-column: 2 /-2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--gap);
+  }
+</style>
