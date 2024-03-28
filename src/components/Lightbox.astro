@@ -68,13 +68,15 @@ const images = gallery ? gallery.data.images : [];
           ))
         }
       </ul>
-    </div>
-    <ul class="splide__pagination"></ul>
-    <button class="btn-left" type="button" aria-label="previous slide">L</button
-    >
-    <button class="btn-right" type="button" aria-label="next slide">R</button>
+    </div><div>
+      <ul class="splide__pagination"></ul>
+      <button class="btn-left" type="button" aria-label="previous slide"
+        >L</button
+      >
+      <button class="btn-right" type="button" aria-label="next slide">R</button>
 
-    <button data-close-modal class="btn-close">Close</button>
+      <button data-close-modal class="btn-close">Close</button>
+    </div>
   </section>
 </dialog>
 
@@ -151,22 +153,35 @@ const images = gallery ? gallery.data.images : [];
   }
   .splide__slide {
     // background-color: red;
-    display: grid;
+    // Use --_lines for number of lines of text reserved for description
+    --_lines: 6;
+    --_lineHeight: 1.7;
+    max-height: 100vh;
+    line-height: var(--_lineHeight);
+
+    background-color: red;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr auto auto;
     grid-template-areas:
-      " image "
-      " text ";
+      "image"
+      "text"
+      "navigation";
   }
+
   .slide__image {
-    grid-area: image;
+    height: calc(100vh - var(--_lines) * 1lh);
     display: grid;
-    background-color: blue;
     align-content: center;
+    img {
+      max-height: calc(100vh - var(--_lines) * 1lh);
+      width: auto;
+      margin: auto;
+    }
   }
   .slide__text {
     grid-area: text;
     background-color: chartreuse;
+    height: calc(var(--_lines) * 1lh);
   }
   .btn-close {
     width: 10ch;
@@ -176,23 +191,7 @@ const images = gallery ? gallery.data.images : [];
       background-color: pink;
     }
     .splide__slide {
-      max-height: 100vh;
-      background-color: red;
-      grid-template-columns: 55px 1fr 55px;
-      grid-template-rows: 1fr auto;
-      grid-template-areas:
-        "lhs image rhs"
-        "lhs text rhs";
-    }
-    .slide__image {
-      max-height: calc(100vh - 10lh);
-
-      img {
-        // max-height: auto;
-        max-height: calc(100vh - 10lh);
-        width: auto;
-        margin: auto;
-      }
+      // Use --_lines for number of lines of text reserved for description
     }
   }
 </style>
