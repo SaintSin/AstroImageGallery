@@ -4,31 +4,15 @@ import { Image } from "astro:assets";
 import testImage from "@images/1/cat_1.jpg";
 ---
 
-<section id="image-carousel" class="splide">
-  <div class="splide__track">
-    <div class="splide__list">
-      <div class="splide__slide">
-        <div class="slide__image">
-          <Image src={testImage} alt="xx" />
-        </div>
-        <div class="slide__text">
-          <p>1 Slide Title sss</p>
-          <p>desc</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <ul class="splide__pagination"></ul>
-  <button data-close-modal class="btn-close">Close</button>
-</section>
-
 <button data-open-modal>Open</button>
 <dialog data-modal>
-  <!-- <section id="image-carousel" class="splide">
+  <section id="image-carousel" class="splide">
     <div class="splide__track">
       <div class="splide__list">
         <div class="splide__slide">
-          <Image src={testImage} alt="xx" />
+          <div class="slide__image">
+            <Image src={testImage} alt="xx" />
+          </div>
           <div class="slide__text">
             <p>1 Slide Title sss</p>
             <p>desc</p>
@@ -38,7 +22,7 @@ import testImage from "@images/1/cat_1.jpg";
     </div>
     <ul class="splide__pagination"></ul>
     <button data-close-modal class="btn-close">Close</button>
-  </section> -->
+  </section>
 </dialog>
 
 <style lang="scss">
@@ -47,6 +31,7 @@ import testImage from "@images/1/cat_1.jpg";
     height: 100vh;
     max-height: 100vh;
     border: 0;
+    padding: 0;
     background: red;
   }
 
@@ -92,6 +77,17 @@ import testImage from "@images/1/cat_1.jpg";
   .slide__text {
     grid-area: text;
     background-color: aqua;
+  }
+
+  @media (width < 580px) {
+    .splide__slide {
+      background-color: green;
+      grid-template-columns: 1fr;
+      grid-template-rows: 80vh 130px;
+      grid-template-areas:
+        " image "
+        " text ";
+    }
   }
 </style>
 

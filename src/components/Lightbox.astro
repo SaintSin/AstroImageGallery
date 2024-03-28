@@ -79,7 +79,7 @@ const images = gallery ? gallery.data.images : [];
     --thumbw: var(--size-fluid-8);
     --thumbwmin: var(--size-fluid-7);
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (width< 580px) {
     :root {
       --thumbw: var(--size-fluid-7);
       --thumbwmin: var(--size-fluid-5);
@@ -124,7 +124,10 @@ const images = gallery ? gallery.data.images : [];
     // height: 100vh;
     max-height: 100vh;
     border: 0px;
+    padding: 0;
+
     background: oklch(var(--dark));
+    background: red;
 
     button {
       display: block;
@@ -172,6 +175,21 @@ const images = gallery ? gallery.data.images : [];
   }
   .btn-close {
     width: 7ch;
+  }
+
+  @media (width < 580px) {
+    body {
+      // background-color: pink;
+    }
+
+    .splide__slide {
+      background-color: green;
+      grid-template-columns: 1fr;
+      grid-template-rows: 80vh 130px;
+      grid-template-areas:
+        " image "
+        " text ";
+    }
   }
 </style>
 
@@ -270,4 +288,12 @@ const images = gallery ? gallery.data.images : [];
 
   // Mount Splide
   splide.mount();
+  // Add event listener for keydown events
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      splide.go("-1"); // Go to previous slide
+    } else if (event.key === "ArrowRight") {
+      splide.go("+1"); // Go to next slide
+    }
+  });
 </script>
