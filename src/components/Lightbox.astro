@@ -16,6 +16,9 @@ const gallery = await getEntry("galleries", galleryid);
 const images = gallery ? gallery.data.images : [];
 ---
 
+<p>
+  Add padding option to image (for aesthetic), and account for navigation space
+</p>
 <section class="">
   <div>
     <ul class="thumbnails">
@@ -68,14 +71,45 @@ const images = gallery ? gallery.data.images : [];
           ))
         }
       </ul>
-    </div><div>
+    </div>
+    <div class="slide__control">
       <ul class="splide__pagination"></ul>
       <button class="btn-left" type="button" aria-label="previous slide"
-        >L</button
-      >
-      <button class="btn-right" type="button" aria-label="next slide">R</button>
-
-      <button data-close-modal class="btn-close">Close</button>
+        >L <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225Z"></path></svg
+        >
+      </button>
+      <button data-close-modal class="btn-close">
+        Close
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="m9.4 16l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L16 9.4L14.6 8L12 10.6L9.4 8L8 9.4l2.6 2.6L8 14.6ZM4 20q-.825 0-1.412-.587Q2 18.825 2 18V6q0-.825.588-1.412Q3.175 4 4 4h16q.825 0 1.413.588Q22 5.175 22 6v12q0 .825-.587 1.413Q20.825 20 20 20Z"
+          ></path></svg
+        >
+      </button>
+      <button class="btn-right" type="button" aria-label="next slide"
+        >R<svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10Z"
+          ></path></svg
+        >
+      </button>
     </div>
   </section>
 </dialog>
@@ -124,9 +158,8 @@ const images = gallery ? gallery.data.images : [];
   dialog {
     border: 0;
     height: 100vh;
-    background: red;
     padding: 0;
-    margin: 0;
+    margin: 4;
 
     button {
       display: block;
@@ -138,6 +171,7 @@ const images = gallery ? gallery.data.images : [];
   dialog:modal {
     max-width: 100vw;
     max-height: 100vh;
+    background: black;
   }
   dialog::backdrop {
     // background: oklch(var(--dark) / 90%);
@@ -146,20 +180,17 @@ const images = gallery ? gallery.data.images : [];
   }
   #image-carousel {
     display: grid;
-    // Navigation l & r buttons, image then navigation bullets
-
     --_max-height-desktop: 80vh;
-    background: pink;
   }
   .splide__slide {
     // background-color: red;
     // Use --_lines for number of lines of text reserved for description
-    --_lines: 6;
+    --_lines: 10;
     --_lineHeight: 1.7;
+
     max-height: 100vh;
     line-height: var(--_lineHeight);
 
-    background-color: red;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto auto;
     grid-template-areas:
@@ -172,6 +203,8 @@ const images = gallery ? gallery.data.images : [];
     height: calc(100vh - var(--_lines) * 1lh);
     display: grid;
     align-content: center;
+    background-color: rgba(67, 161, 130, 0.51);
+
     img {
       max-height: calc(100vh - var(--_lines) * 1lh);
       width: auto;
@@ -179,16 +212,27 @@ const images = gallery ? gallery.data.images : [];
     }
   }
   .slide__text {
+    // background-color: chartreuse;
+
     grid-area: text;
-    background-color: chartreuse;
     height: calc(var(--_lines) * 1lh);
+  }
+  .slide__control {
+    background: red;
+    button {
+      display: inline-block;
+      transition: all 0.3s;
+      &:hover {
+        background-color: aqua;
+      }
+    }
   }
   .btn-close {
     width: 10ch;
   }
   @media (width > 580px) {
     body {
-      background-color: pink;
+      // background-color: pink;
     }
     .splide__slide {
       // Use --_lines for number of lines of text reserved for description

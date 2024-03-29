@@ -4,28 +4,45 @@ import { Image } from "astro:assets";
 import testImage from "@images/1/cat_1.jpg";
 ---
 
-<button data-open-modal>Open</button>
-<dialog data-modal>
-  <section id="image-carousel" class="splide">
-    <div class="splide__track">
-      <div class="splide__list">
-        <div class="splide__slide">
-          <div class="slide__image">
-            <Image src={testImage} alt="xx" />
-          </div>
-          <div class="slide__text">
-            <p>1 Slide Title sss</p>
-            <p>desc</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <ul class="splide__pagination"></ul>
-    <button data-close-modal class="btn-close">Close</button>
-  </section>
-</dialog>
+<h1>Test</h1>
+<!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+<script>
+  import Swiper from "swiper";
+
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+  });
+  console.log(swiper);
+</script>
 
 <style lang="scss">
+  .swiper {
+    width: 900px;
+    height: 400px;
+  }
   dialog {
     width: 100vw;
     height: 100vh;

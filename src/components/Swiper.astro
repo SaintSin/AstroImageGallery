@@ -17,7 +17,7 @@ const images = gallery ? gallery.data.images : [];
 <h2>Swiper</h2>
 <p>Autoplay is not working.</p>
 <!-- Slider main container -->
-<div class="swiper">
+<div class="xswiper">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
@@ -35,17 +35,48 @@ const images = gallery ? gallery.data.images : [];
     }
   </div>
 </div>
+<hr />
+<!-- Swiper -->
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    <div class="swiper-slide">Slide 4</div>
+    <div class="swiper-slide">Slide 5</div>
+    <div class="swiper-slide">Slide 6</div>
+    <div class="swiper-slide">Slide 7</div>
+    <div class="swiper-slide">Slide 8</div>
+    <div class="swiper-slide">Slide 9</div>
+    <div class="swiper-slide">Slide 10</div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
 <script>
-  // core version + navigation, pagination modules:
-  import Swiper from "swiper";
-  import "swiper/css";
-  const swiper = new Swiper(".swiper", {
-    speed: 400,
-    spaceBetween: 100,
+  // import Swiper from "swiper";
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  import "swiper/swiper-bundle.css";
+  var swiper = new Swiper(".swiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
     autoplay: {
-      delay: 500,
+      delay: 2500,
+      disableOnInteraction: false,
     },
-    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
   console.log("Swiper:", swiper);
 </script>
@@ -54,5 +85,9 @@ const images = gallery ? gallery.data.images : [];
   img {
     widows: 100%;
     height: auto;
+  }
+  .swiper {
+    width: 500px;
+    height: 300px;
   }
 </style>
