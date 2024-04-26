@@ -30,9 +30,9 @@ const images = gallery ? gallery.data.images : [];
             <Image
               src={i.src}
               alt={i.alt}
-              widths={[180, 400, 600]}
-              sizes={`(max-width: 260px)180px, (max-width: 520px) 400px,  600px`}
-              quality={40}
+              widths={[200, 500]}
+              sizes={`(max-width: 260px) 200px, 500px`}
+              quality={35}
               loading={"eager"}
               format={"avif"}
             />
