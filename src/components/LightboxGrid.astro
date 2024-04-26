@@ -4,6 +4,7 @@
 
 import { type CollectionEntry, getEntry } from "astro:content";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   galleryid: string;
@@ -19,6 +20,7 @@ const images = gallery ? gallery.data.images : [];
 <p>
   Add padding option to image (for aesthetic), and account for navigation space
 </p>
+
 <section class="">
   <ul class="thumbnails">
     {
@@ -50,7 +52,7 @@ const images = gallery ? gallery.data.images : [];
         {
           images.map((i, index) => (
             <li class="splide__slide">
-              <figure class="slide__image">
+              <figure class="slide__wrapper">
                 <Image
                   src={i.src}
                   alt={i.alt}
@@ -72,49 +74,16 @@ const images = gallery ? gallery.data.images : [];
         }
       </ul>
     </div>
-    <div class="slide__control">
-      <div class="slide__navigation__left">
-        <button class="btn-left" type="button" aria-label="previous slide"
-          >L <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225Z"></path></svg
-          >
-        </button>
-      </div>
-      <button data-close-modal class="btn-close">
-        Close
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          ><path
-            fill="currentColor"
-            d="m9.4 16l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L16 9.4L14.6 8L12 10.6L9.4 8L8 9.4l2.6 2.6L8 14.6ZM4 20q-.825 0-1.412-.587Q2 18.825 2 18V6q0-.825.588-1.412Q3.175 4 4 4h16q.825 0 1.413.588Q22 5.175 22 6v12q0 .825-.587 1.413Q20.825 20 20 20Z"
-          ></path></svg
-        >
-      </button>
-      <div class="slide__navigation__right">
-        <button class="btn-right" type="button" aria-label="next slide"
-          >R<svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10Z"
-            ></path></svg
-          >
-        </button>
-      </div>
-      <ul class="splide__pagination"></ul>
-    </div>
+    <button class="btn-left" type="button" aria-label="previous slide"
+      ><Icon name="mdi:chevron-left" />
+    </button>
+    <button data-close-modal class="btn-close">
+      <Icon name="mdi:close-circle" />
+    </button>
+    <button class="btn-right" type="button" aria-label="next slide"
+      ><Icon name="mdi:chevron-right" />
+    </button>
+    <ul class="splide__pagination"></ul>
   </section>
 </dialog>
 
@@ -127,6 +96,13 @@ const images = gallery ? gallery.data.images : [];
     :root {
       --thumbw: var(--size-fluid-7);
       --thumbwmin: var(--size-fluid-5);
+    }
+  }
+  [data-icon] {
+    font-size: 2rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: green;
     }
   }
   .thumbnails {
@@ -164,9 +140,7 @@ const images = gallery ? gallery.data.images : [];
 
     button {
       display: block;
-      background: rgba(19, 184, 184, 0.59);
       border: none;
-      color: white;
     }
   }
   dialog:modal {
@@ -183,29 +157,47 @@ const images = gallery ? gallery.data.images : [];
   }
   .slide-grid {
     max-height: 100vh;
-    background-color: var(--teal-3);
+    // background-color: var(--teal-3);
     display: grid;
-    grid-template-columns: 0.1fr 1fr 0.1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: 3rem 1fr 3rem;
+    grid-template-rows: 3rem 1fr 3rem;
     grid-template-areas:
-      "lhst slide rhst"
-      "lhsl slide rhsl";
+      "lhst null rhst"
+      "lhsm slide rhsm"
+      "lhsl pagination rhsl";
   }
+
   .splide__track {
     grid-area: slide;
+  }
+  .slide__wrapper {
+    background: var(--orange-3);
+    display: grid;
+    grid-template-rows: 1fr 0.1fr;
+    grid-template-areas:
+      "slide-image"
+      "slide-text";
+  }
+  figcaption {
+    grid-area: slide-text;
+    background: var(--blue-3);
+    max-width: 70ch;
+    margin-inline: auto;
   }
   .splide__list {
   }
 
-  .slide__control {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: grid;
-    grid-template-columns: 0.1fr 1fr 0.1fr;
-    grid-template-areas: "navr nav-c nav-l";
-  }
   .btn-close {
-    width: 10ch;
+    grid-area: rhst;
+    [data-icon] {
+      // left: -2rem;
+    }
+  }
+  .btn-left {
+    grid-area: lhsm;
+  }
+  .btn-right {
+    grid-area: rhsm;
   }
   @media (width > 580px) {
     body {
