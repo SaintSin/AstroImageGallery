@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import image from "@images/1/cat_1.jpg";
+---
+
+<Layout title="Welcome to Astro.">
+  <section>
+    <h1>Test</h1>
+    <button class="thumb" id="show">
+      <Image src={image} alt="cat" id="thumb-image" />
+    </button>
+
+    <dialog>
+      <Image src={image} alt="cat" id="modal-image" />
+      <button autofocus>Close</button>
+    </dialog>
+  </section>
+</Layout>
+
+<style>
+  section {
+    width: 85%;
+    max-width: 1600px;
+    margin-inline: auto;
+  }
+  .thumb {
+    max-width: 25ch;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  #thumb-image,
+  #modal-image {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .hidden {
+    opacity: 0; /* Ensure hidden images have opacity 0 */
+  }
+
+  #dialog:not([open]) #modal-image {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector("dialog");
+  const showButton = document.getElementById("show");
+  const closeButton = document.querySelector("dialog button");
+  const thumbImage = document.getElementById("thumb-image");
+  const modalImage = document.getElementById("modal-image");
+
+  // "Show the dialog" button opens the dialog modally
+  showButton.addEventListener("click", () => {
+    dialog.showModal();
+    thumbImage.classList.add("hidden");
+    modalImage.classList.remove("hidden");
+  });
+
+  // "Close" button closes the dialog
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+    thumbImage.classList.remove("hidden");
+    modalImage.classList.add("hidden");
+  });
+</script>
+
+<script>
+  const dialog = document.querySelector("dialog");
+  const showButton = document.getElementById("show");
+  const closeButton = document.querySelector("dialog button");
+  const thumbImage = document.getElementById("thumb-image");
+  const modalImage = document.getElementById("modal-image");
+
+  // "Show the dialog" button opens the dialog modally
+  showButton.addEventListener("click", () => {
+    dialog.showModal();
+    thumbImage.classList.add("hidden"); // Hide thumb image on open
+    modalImage.classList.remove("hidden"); // Show modal image on open
+  });
+
+  // "Close" button closes the dialog
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+    thumbImage.classList.remove("hidden"); // Show thumb image on close
+    modalImage.classList.add("hidden"); // Hide modal image on close
+  });
+</script>

@@ -44,7 +44,7 @@ const images = gallery ? gallery.data.images : [];
 </section>
 
 <!-- Modal Dialogue With Larger Images-->
-<dialog data-modal>
+<dialog data-modal class="carousel-container">
   <!-- Splide main carousel -->
   <section id="image-carousel" class="splide slide-grid">
     <div class="splide__track">
@@ -64,7 +64,8 @@ const images = gallery ? gallery.data.images : [];
                 />
                 <figcaption>
                   <p class="slide__title">
-                    {index + 1}. <b>{i.title}</b>
+                    {index}
+                    {i.title}
                   </p>
                   <p class="slide__description">{i.description}</p>
                 </figcaption>
@@ -131,16 +132,24 @@ const images = gallery ? gallery.data.images : [];
       }
     }
   }
-
+  .carousel-container {
+    // Use --_lines for number of lines of text reserved for description
+    --_max-height-desktop: 80vh;
+    --_lines: 4;
+    --_lineHeight: 2.7;
+    --_navElements: 2.5rem;
+    line-height: var(--_linehight);
+  }
   dialog {
     border: 0;
     height: 100vh;
     padding: 0;
-    margin: 4;
+    margin: 0;
 
     button {
       display: block;
       border: none;
+      background: none;
     }
   }
   dialog:modal {
@@ -154,13 +163,16 @@ const images = gallery ? gallery.data.images : [];
   }
   .splide {
     margin: auto;
+    * {
+      outline: 1px solid red;
+    }
   }
   .slide-grid {
     max-height: 100vh;
     // background-color: var(--teal-3);
     display: grid;
-    grid-template-columns: 3rem 1fr 3rem;
-    grid-template-rows: 3rem 1fr 3rem;
+    grid-template-columns: var(--_navElements) 1fr var(--_navElements);
+    grid-template-rows: var(--_navElements) 1fr var(--_navElements);
     grid-template-areas:
       "lhst null rhst"
       "lhsm slide rhsm"
@@ -173,16 +185,25 @@ const images = gallery ? gallery.data.images : [];
   .slide__wrapper {
     background: var(--orange-3);
     display: grid;
-    grid-template-rows: 1fr 0.1fr;
+    grid-template-rows: 85dvh calc(var(--_lines)) lh;
     grid-template-areas:
       "slide-image"
       "slide-text";
+    align-content: center;
+
+    img {
+      grid-area: slide-image;
+      outline: 3px solid red;
+      max-height: 85dvh;
+      object-fit: contain;
+    }
   }
   figcaption {
+    width: 65ch;
     grid-area: slide-text;
-    background: var(--blue-3);
-    max-width: 70ch;
+    // background: var(--blue-3);
     margin-inline: auto;
+    padding-block-start: var(--size-3);
   }
   .splide__list {
   }
@@ -198,6 +219,14 @@ const images = gallery ? gallery.data.images : [];
   }
   .btn-right {
     grid-area: rhsm;
+  }
+  .splide__pagination {
+    grid-area: pagination;
+  }
+  .slide__title {
+    font-weight: 700;
+  }
+  .slide__description {
   }
   @media (width > 580px) {
     body {
