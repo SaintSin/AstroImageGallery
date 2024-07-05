@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
-    "@iconify-json/mdi": "^1.1.66",
+    "@iconify-json/mdi": "^1.1.67",
     "@splidejs/splide": "^4.1.4",
-    "astro": "^4.10.2",
+    "astro": "^4.11.5",
     "astro-icon": "^1.1.0",
-    "open-props": "^1.7.4",
-    "sass": "^1.77.5",
+    "open-props": "^1.7.5",
+    "sass": "^1.77.6",
     "sharp": "^0.33.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
     "postcss-jit-props": "^1.0.14",

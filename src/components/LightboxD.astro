@@ -16,33 +16,35 @@ const gallery = await getEntry("galleries", galleryid);
 const images = gallery ? gallery.data.images : [];
 ---
 
-<p>
-  B Add padding option to image (for aesthetic), and account for navigation
-  space
-</p>
-<ul>
-  <li>Zoomed image content based on line height</li>
-</ul>
+<h2>D</h2>
+<ul><li>Dialog Modal should be a grid 1 /1</li></ul>
+
 <section class="">
-  <div>
-    <ul class="thumbnails">
-      {
-        images.map((i) => (
-          <li class="thumbnail">
-            <button data-open-modal>
-              <Image
-                src={i.src}
-                alt={i.alt}
-                widths={[180, 400, 600]}
-                sizes={`(max-width: 260px)180px, (max-width: 520px) 400px,  600px`}
-                quality={40}
-                loading={"eager"}
-              />
-            </button>
-          </li>
-        ))
-      }
-    </ul>
+  <ul class="thumbnails">
+    {
+      images.map((i) => (
+        <li class="thumbnail">
+          <button data-open-modal>
+            <Image
+              src={i.src}
+              alt={i.alt}
+              widths={[180, 400, 600]}
+              sizes={`(max-width: 260px)180px, (max-width: 520px) 400px,  600px`}
+              quality={40}
+              loading={"eager"}
+            />
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="parent">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="child">
+      <div class="item">Child Item 1</div>
+      <div class="item">Child Item 2</div>
+    </div>
   </div>
 </section>
 
@@ -50,8 +52,8 @@ const images = gallery ? gallery.data.images : [];
 <dialog data-modal>
   <!-- Splide main carousel -->
   <section id="image-carousel" class="splide master-grid">
-    <div class="splide__track">
-      <ul class="splide__list">
+    <div class="splide__track inherit-grid">
+      <ul class="splide__list inherit-grid">
         {
           images.map((i, index) => (
             <li class="splide__slide content-grid">
@@ -121,6 +123,24 @@ const images = gallery ? gallery.data.images : [];
 </dialog>
 
 <style lang="scss">
+  .parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .child {
+    display: inherit; /* Inherits the display property from the parent */
+    grid-template-columns: inherit; /* Inherits the grid-template-columns from the parent */
+    gap: inherit; /* Inherits the gap property from the parent */
+  }
+
+  .item {
+    background-color: lightblue;
+    padding: 20px;
+    border: 1px solid #000;
+  }
+
   :root {
     --thumbw: var(--size-fluid-8);
     --thumbwmin: var(--size-fluid-7);
@@ -199,16 +219,16 @@ const images = gallery ? gallery.data.images : [];
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: 1;
-    grid-template-area: "main";
-    background: rgba(245, 222, 179, 0.221);
+    grid-template-areas: "main";
+    // background: rgba(245, 222, 179, 0.221);
   }
   .inherit-grid {
     grid-rows: 1 / -1;
     grid-column: 1 / -1;
-    display: grid;
-    grid: inherit;
-    height: 100%;
-    width: 100%;
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-template-rows: inherit;
+    grid-template-areas: inherit;
   }
   .content-grid {
     grid-area: main;
@@ -220,7 +240,7 @@ const images = gallery ? gallery.data.images : [];
       "tlhs top trhs"
       "clhs content crhs"
       "blhs bottom brhs";
-    background-color: red;
+    // background-color: red;
   }
   .splide__slide {
   }
@@ -239,7 +259,7 @@ const images = gallery ? gallery.data.images : [];
     }
   }
   figcaption {
-    background-color: pink;
+    // background-color: rgba(255, 192, 203, 0.413);
     max-width: 65ch;
     margin-inline: auto;
     .title {
@@ -248,7 +268,7 @@ const images = gallery ? gallery.data.images : [];
     }
   }
   .slide__control {
-    background-color: green;
+    // background-color: rgba(0, 128, 0, 0.381);
     .btn-left {
       grid-area: clhs;
     }
