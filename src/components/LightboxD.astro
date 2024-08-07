@@ -17,7 +17,14 @@ const images = gallery ? gallery.data.images : [];
 ---
 
 <h2>D</h2>
-<ul><li>Dialog Modal should be a grid 1 /1</li></ul>
+<ul>
+  <li>Dialog Modal should be a grid 1 /1</li>
+  <li>
+    Three grid layers:<ol>
+      <li>Container, which holds:</li><li>Content</li><li>Controls</li>
+    </ol>
+  </li>
+</ul>
 
 <section class="">
   <ul class="thumbnails">
@@ -41,19 +48,54 @@ const images = gallery ? gallery.data.images : [];
   <div class="parent">
     <div class="item">Item 1</div>
     <div class="item">Item 2</div>
-    <div class="child">
+    <div class="item bottom">Item 3 overlaid in bottom</div>
+    <div class="item content">Item 3 Content</div>
+    <div class="bottom">Bottom</div>
+    <div class="clhs">Cent LHS</div>
+    <div class="crhs">Cent RHS</div>
+    <div class="brhs">Bottom RHS</div>
+    <div class="blhs">Bottom LHS</div>
+
+    <div class="child top">
       <div class="item">Child Item 1</div>
       <div class="item">Child Item 2</div>
     </div>
+  </div>
+</section>
+<section class="container-grid">
+  <div class="content">
+    Content Div
+    <div class="main">Conwnr</div>
+
+    <div class="bottom">Bottom</div>
+  </div>
+  <div class="content">
+    another Content Div
+    <div class="main">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+        voluptatum distinctio ex mollitia perspiciatis, sint, soluta cupiditate
+        aliquid dignissimos rem tempore dolor quos voluptas. Iure accusantium
+        eligendi impedit at consequatur.
+      </p>
+    </div>
+    <div class="bottom">
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bottom2
+    </div>
+    <div class="clhs">Cent LHS</div>
+    <div class="crhs">Cent RHS</div>
+    <div class="brhs">Bottom RHS</div>
+    <div class="blhs">Bottom LHS</div>
   </div>
 </section>
 
 <!-- Modal Dialogue With Larger Images-->
 <dialog data-modal>
   <!-- Splide main carousel -->
-  <section id="image-carousel" class="splide master-grid">
-    <div class="splide__track inherit-grid">
-      <ul class="splide__list inherit-grid">
+  <section id="image-carousel" class="splide container-grid">
+    <div class="splide__track container-grid">
+      <!-- Image and Caption -->
+      <ul class="splide__list content">
         {
           images.map((i, index) => (
             <li class="splide__slide content-grid">
@@ -80,8 +122,9 @@ const images = gallery ? gallery.data.images : [];
         }
       </ul>
     </div>
-    <div class="slide__control content-grid">
-      <button class="btn-left" type="button" aria-label="previous slide">
+    <div class="slide__control content" id="control">
+      <!-- Controls -->
+      <button class="clhs" type="button" aria-label="previous slide">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -92,7 +135,7 @@ const images = gallery ? gallery.data.images : [];
             d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225Z"></path></svg
         >
       </button>
-      <button data-close-modal class="btn-close">
+      <button data-close-modal class="btn-close trhs">
         Close
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +148,7 @@ const images = gallery ? gallery.data.images : [];
           ></path></svg
         >
       </button>
-      <button class="btn-right" type="button" aria-label="next slide"
+      <button class="crhs" type="button" aria-label="next slide"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -123,10 +166,81 @@ const images = gallery ? gallery.data.images : [];
 </dialog>
 
 <style lang="scss">
-  .parent {
+  .container-grid {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "container";
+    background-color: rgba(0, 0, 255, 0.274);
+    padding: 3ch;
+    margin-block-start: 3ch;
+    p {
+      grid-area: content;
+      color: rgba(255, 0, 0, 0.543);
+    }
+    h1 {
+      grid-area: content;
+      color: rgba(255, 192, 203, 0.483);
+    }
+    .content {
+      height: 95vh;
+      width: 100%;
+      grid-area: container;
+      display: grid;
+      grid-template-columns: 0.1fr 1fr 0.1fr;
+      grid-template-rows: 5ch 1fr 5ch;
+      grid-template-areas:
+        "tlhs top trhs"
+        "clhs content crhs"
+        "blhs bottom brhs";
+      background-color: rgba(255, 255, 255, 0.113);
+      gap: 10px;
+    }
+  }
+  .parent {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    grid-template-rows: 5ch 1fr 5ch;
+    grid-template-areas:
+      "tlhs top trhs"
+      "clhs content crhs"
+      "blhs bottom brhs";
+    background-color: rgba(127, 255, 212, 0.247);
     gap: 10px;
+  }
+  .content {
+    grid-area: content;
+    background: rgba(255, 127, 249, 0.345);
+  }
+  .bottom {
+    grid-area: bottom;
+    background: rgba(255, 127, 249, 0.138);
+    color: black;
+  }
+  .top {
+    grid-area: top;
+    background: rgba(255, 221, 127, 0.345);
+  }
+  .clhs {
+    grid-area: clhs;
+    background: rgba(255, 127, 249, 0.345);
+  }
+  .crhs {
+    grid-area: crhs;
+    background: rgba(255, 127, 249, 0.345);
+  }
+  .trhs {
+    grid-area: trhs;
+    background: rgba(255, 127, 249, 0.345);
+  }
+
+  .blhs {
+    grid-area: blhs;
+    background: rgba(127, 255, 136, 0.345);
+  }
+  .brhs {
+    grid-area: brhs;
+    background: rgba(127, 253, 255, 0.345);
   }
 
   .child {
@@ -215,13 +329,6 @@ const images = gallery ? gallery.data.images : [];
     width: 100%;
   }
 
-  .master-grid {
-    display: grid;
-    grid-template-columns: 1;
-    grid-template-rows: 1;
-    grid-template-areas: "main";
-    // background: rgba(245, 222, 179, 0.221);
-  }
   .inherit-grid {
     grid-rows: 1 / -1;
     grid-column: 1 / -1;
@@ -267,21 +374,7 @@ const images = gallery ? gallery.data.images : [];
       font-weight: bold;
     }
   }
-  .slide__control {
-    // background-color: rgba(0, 128, 0, 0.381);
-    .btn-left {
-      grid-area: clhs;
-    }
-    .btn-right {
-      grid-area: crhs;
-    }
-    .btn-close {
-      grid-area: trhs;
-    }
-    .splide__pagination {
-      grid-area: bottom;
-    }
-  }
+
   button {
     z-index: 100;
     display: inline-block;
